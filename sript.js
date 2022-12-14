@@ -1,15 +1,15 @@
-//1. let's create user choise function that return input
-const getUserChoice = userInput => {
-    //making all input in lower case:
-    userInput = userInput.toLowerCase();
+//let's create user choise function that return input
+// const getUserChoice = userInput => {
+//     //making all input in lower case:
+//     userInput = userInput.toLowerCase();
 
-    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
-        return userInput;
-    }   else {
-        console.log('Please check your type')
-    }
-};
-//2. let's create computer random choise:
+//     if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
+//         return userInput;
+//     }   else {
+//         alert('Please check your type')
+//     }
+// };
+//let's create computer random choise:
 const getComputerChoice = () => {
     //create randomiser variable:
     const randomNumber = Math.floor(Math.random() * 3);
@@ -27,7 +27,7 @@ const getComputerChoice = () => {
     }
 };
 
-//3. Let's determine a winner between user & computer depending on choices of each
+//Let's determine a winner between user & computer depending on choices of each
 const determineWinner = (userChoice, computerChoice) => {
     if (userChoice === computerChoice) {
         return 'Draw!';
@@ -53,20 +53,26 @@ const determineWinner = (userChoice, computerChoice) => {
         return 'Machine won!';
         }
     }
-    if (userChoice === 'bomb') {
-        return 'You always win with a bobm!'
-    }
 };
 
-//4. strat the game!
+//strat the game!
 const playGame = () => {
-    const userChoice = getUserChoice('paper');//<--put your choice
+    let userChoice = prompt('Input your choice');//<--put your choice
+    userChoice = userChoice.toLowerCase();
+    // const userChoice = getUserChoice('paper');
+
+    if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
+        alert (userChoice);
+    } else {
+        alert('Please check your type')
+    }
+
+
     const computerChoice = getComputerChoice();
 
-    console.log('You threw: ' + userChoice);
-    console.log('The machine threw: ' + computerChoice);
 
-    console.log(determineWinner(userChoice, computerChoice));
+    alert('The machine threw: ' + computerChoice);
+    alert(determineWinner(userChoice, computerChoice));
 };
 
 playGame();
